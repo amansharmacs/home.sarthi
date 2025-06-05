@@ -1,7 +1,6 @@
 import type React from "react"
 import "./globals.css"
 import { Inter } from "next/font/google"
-import { ThemeProvider } from "@/components/theme-provider"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -17,7 +16,7 @@ export const metadata = {
     shortcut: "/logo.png",
     apple: "/logo.png",
   },
-    generator: 'v0.dev'
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -26,18 +25,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <link rel="icon" href="/logo.png" sizes="any" />
         <link rel="apple-touch-icon" href="/logo.png" />
         <meta name="color-scheme" content="dark light" />
       </head>
       <body className={`${inter.variable} font-sans`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem={true}>
-          <div className="min-h-screen bg-background font-sans antialiased">
-            {children}
-          </div>
-        </ThemeProvider>
+        <div className="min-h-screen bg-background font-sans antialiased">
+          {children}
+        </div>
       </body>
     </html>
   )
