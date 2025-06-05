@@ -26,14 +26,17 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         <link rel="icon" href="/logo.png" sizes="any" />
         <link rel="apple-touch-icon" href="/logo.png" />
+        <meta name="color-scheme" content="dark light" />
       </head>
       <body className={`${inter.variable} font-sans`}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-          {children}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem={true}>
+          <div className="min-h-screen bg-background font-sans antialiased">
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>
